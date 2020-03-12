@@ -1,0 +1,17 @@
+{
+    "name": "milan-miscevic/vrijeme3",
+    "require": {
+        "milan-miscevic/inert": "^0.3"
+    },
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/milan-miscevic/inert.git"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Vrijeme3\\": "src"
+        }
+    }
+}
