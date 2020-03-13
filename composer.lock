@@ -4,20 +4,20 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "473be034e2fc268a023c24f36cc81f1d",
+    "content-hash": "711db80f3b5132883e6a731ed976a2ab",
     "packages": [
         {
             "name": "milan-miscevic/inert",
-            "version": "0.3",
+            "version": "0.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/milan-miscevic/inert.git",
-                "reference": "a0a9bac459e73194b605ea88bb09b3c9c01a3328"
+                "reference": "e649c033556983f931b7f798be827ac1560df2c9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/milan-miscevic/inert/zipball/a0a9bac459e73194b605ea88bb09b3c9c01a3328",
-                "reference": "a0a9bac459e73194b605ea88bb09b3c9c01a3328",
+                "url": "https://api.github.com/repos/milan-miscevic/inert/zipball/e649c033556983f931b7f798be827ac1560df2c9",
+                "reference": "e649c033556983f931b7f798be827ac1560df2c9",
                 "shasum": ""
             },
             "type": "library",
@@ -27,10 +27,10 @@
                 }
             },
             "support": {
-                "source": "https://github.com/milan-miscevic/inert/tree/0.3",
+                "source": "https://github.com/milan-miscevic/inert/tree/0.4",
                 "issues": "https://github.com/milan-miscevic/inert/issues"
             },
-            "time": "2020-03-12T09:46:08+00:00"
+            "time": "2020-03-13T12:30:32+00:00"
         }
     ],
     "packages-dev": [],

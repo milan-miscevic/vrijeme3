@@ -1,7 +1,7 @@
 {
     "name": "milan-miscevic/vrijeme3",
     "require": {
-        "milan-miscevic/inert": "^0.3"
+        "milan-miscevic/inert": "^0.4"
     },
     "repositories": [
         {
