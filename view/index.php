@@ -11,6 +11,8 @@
 <body>
 
 Banjaluka, Budžak (RHMZRS): <span data-url="?action=rhmzrs">-</span> °C
+<br>
+Banjaluka, Mejdan (PurpleAir): <span data-url="?action=purpleair">-</span> °C
 
 </body>
 

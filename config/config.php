@@ -5,6 +5,7 @@ use Inert\ServiceLocator;
 return [
     'actions' => [
         'index' => \Vrijeme3\Factory\IndexActionFactory::class,
+        'purpleair' => \Vrijeme3\Factory\PurpleairActionFactory::class,
         'rhmzrs' => \Vrijeme3\Factory\RhmzrsActionFactory::class,
     ],
     'services' => [
