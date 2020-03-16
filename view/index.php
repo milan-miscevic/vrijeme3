@@ -10,7 +10,7 @@
 
 <body>
 
-Banjaluka: <?= $banjalukaTemperature; ?> °C
+Banjaluka, Budžak (RHMZRS): <span data-url="?action=rhmzrs">-</span> °C
 
 </body>
 

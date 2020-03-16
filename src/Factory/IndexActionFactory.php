@@ -9,6 +9,6 @@ class IndexActionFactory
 {
     public function __invoke(ServiceLocator $serviceLocator): IndexAction
     {
-        return new IndexAction($serviceLocator->get('curl'));
+        return new IndexAction();
     }
 }
