@@ -20,6 +20,6 @@ class PurpleairAction extends Action
         $data = $this->curl->get('http://www.purpleair.com/json?show=33099');
         $data = json_decode($data, true);
 
-        echo Stdlib::fahrenheitToCelsius($data['results'][0]['temp_f']);
+        echo Stdlib::fahrenheitToCelsius((float) $data['results'][0]['temp_f']);
     }
 }
