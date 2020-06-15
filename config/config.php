@@ -3,16 +3,17 @@
 declare(strict_types=1);
 
 use Inert\ServiceLocator;
+use Vrijeme3\Core\Curl;
 
 return [
     'actions' => [
-        'index' => \Vrijeme3\Factory\IndexActionFactory::class,
-        'purpleair' => \Vrijeme3\Factory\PurpleairActionFactory::class,
-        'rhmzrs' => \Vrijeme3\Factory\RhmzrsActionFactory::class,
+        'index' => \Vrijeme3\Action\IndexActionFactory::class,
+        'purple-air' => \Vrijeme3\Action\PurpleairActionFactory::class,
+        'rhmzrs' => \Vrijeme3\Action\RhmzrsActionFactory::class,
     ],
     'services' => [
-        'curl' => function (ServiceLocator $serviceLocator) {
-            return new \Vrijeme3\Curl();
+        Curl::class => function (ServiceLocator $serviceLocator) {
+            return new Curl();
         },
     ],
 ];

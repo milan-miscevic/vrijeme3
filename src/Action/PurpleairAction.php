@@ -2,11 +2,13 @@
 
 declare(strict_types=1);
 
-namespace Vrijeme3;
+namespace Vrijeme3\Action;
 
-use Inert\Action;
+use Inert\BaseAction;
+use Vrijeme3\Core\Curl;
+use Vrijeme3\Core\Stdlib;
 
-class PurpleairAction extends Action
+class PurpleairAction extends BaseAction
 {
     private Curl $curl;
 

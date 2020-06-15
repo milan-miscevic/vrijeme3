@@ -2,18 +2,18 @@
 
 declare(strict_types=1);
 
-namespace Vrijeme3\Factory;
+namespace Vrijeme3\Action;
 
+use Inert\BaseFactory;
 use Inert\ServiceLocator;
-use Vrijeme3\Curl;
-use Vrijeme3\RhmzrsAction;
+use Vrijeme3\Core\Curl;
 
-class RhmzrsActionFactory
+class RhmzrsActionFactory extends BaseFactory
 {
     public function __invoke(ServiceLocator $serviceLocator): RhmzrsAction
     {
         /** @var Curl $curl */
-        $curl = $serviceLocator->get('curl');
+        $curl = $serviceLocator->get(Curl::class);
 
         return new RhmzrsAction($curl);
     }

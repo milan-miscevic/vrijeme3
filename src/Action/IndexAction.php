@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace Vrijeme3;
+namespace Vrijeme3\Action;
 
-use Inert\Action;
+use Inert\BaseAction;
 
-class IndexAction extends Action
+class IndexAction extends BaseAction
 {
     public function run(): void
     {
