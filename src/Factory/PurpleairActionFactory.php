@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Vrijeme3\Factory;
 
 use Inert\ServiceLocator;

@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Vrijeme3;
 
 class Curl
@@ -14,7 +16,7 @@ class Curl
 
         $response = curl_exec($ch);
 
-        if ($response === FALSE) {
+        if ($response === false) {
             throw new \RuntimeException(curl_error($ch));
         }
 

@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 use Inert\ServiceLocator;
 
 return [
@@ -9,7 +11,7 @@ return [
         'rhmzrs' => \Vrijeme3\Factory\RhmzrsActionFactory::class,
     ],
     'services' => [
-        'curl' => function(ServiceLocator $serviceLocator) {
+        'curl' => function (ServiceLocator $serviceLocator) {
             return new \Vrijeme3\Curl();
         },
     ],
