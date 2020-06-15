@@ -4,21 +4,28 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "24a97c1f3491e77fcd6e10a70241e34a",
+    "content-hash": "092cf0fc95f3b0901121e339ba84749a",
     "packages": [
         {
             "name": "milan-miscevic/inert",
-            "version": "0.4",
+            "version": "0.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/milan-miscevic/inert.git",
-                "reference": "e649c033556983f931b7f798be827ac1560df2c9"
+                "reference": "ac51e499e6ae354348f11290950e0bb7a95aa5c7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/milan-miscevic/inert/zipball/e649c033556983f931b7f798be827ac1560df2c9",
-                "reference": "e649c033556983f931b7f798be827ac1560df2c9",
+                "url": "https://api.github.com/repos/milan-miscevic/inert/zipball/ac51e499e6ae354348f11290950e0bb7a95aa5c7",
+                "reference": "ac51e499e6ae354348f11290950e0bb7a95aa5c7",
                 "shasum": ""
+            },
+            "require": {
+                "php": "^7.4"
+            },
+            "require-dev": {
+                "phpstan/phpstan": "^0.12",
+                "phpunit/phpunit": "^9"
             },
             "type": "library",
             "autoload": {
@@ -27,7 +34,21 @@
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
-            "time": "2020-03-13T12:30:32+00:00"
+            "license": [
+                "MIT"
+            ],
+            "description": "A mini PHP framework with basic MVC and service locator support",
+            "keywords": [
+                "Service-Locator",
+                "action-locator",
+                "basic",
+                "factory",
+                "framework",
+                "inert",
+                "mvc",
+                "php-framework"
+            ],
+            "time": "2020-05-12T13:50:29+00:00"
         }
     ],
     "packages-dev": [
