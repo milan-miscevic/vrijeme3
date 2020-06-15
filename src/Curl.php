@@ -14,6 +14,7 @@ class Curl
         curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'GET');
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 
+        /** @var string|false $response */
         $response = curl_exec($ch);
 
         if ($response === false) {
