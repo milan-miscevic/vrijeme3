@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Vrijeme3\Action;
 
 use Inert\BaseAction;
+use Inert\Response;
 use Vrijeme3\Core\Curl;
 
 class RhmzrsAction extends BaseAction
@@ -16,7 +17,7 @@ class RhmzrsAction extends BaseAction
         $this->curl = $curl;
     }
 
-    public function run(): void
+    public function run(): Response
     {
         $data = $this->curl->get('http://rhmzrs.com/wp-content/feeds/temperatureTrenutne.json');
         $temperatures = json_decode($data, true);
@@ -30,6 +31,6 @@ class RhmzrsAction extends BaseAction
             }
         }
 
-        echo $banjalukaTemperature;
+        return new Response($banjalukaTemperature);
     }
 }

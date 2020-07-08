@@ -5,11 +5,12 @@ declare(strict_types=1);
 namespace Vrijeme3\Action;
 
 use Inert\BaseAction;
+use Inert\Response;
 
 class IndexAction extends BaseAction
 {
-    public function run(): void
+    public function run(): Response
     {
-        $this->render('index');
+        return $this->render('index');
     }
 }
