@@ -1,8 +1,11 @@
-$(document).ready(function() {
-    $('span[data-url]').each(function() {
-        var $span = $(this);
-        $.get($(this).data('url'), function(data) {
-            $span.text(data);
-        });
+document.addEventListener("DOMContentLoaded", function() {
+    document.querySelectorAll('span[data-url]').forEach(function(el) {
+        fetch(el.dataset.url)
+            .then(data => data.text())
+            .then(data => {
+                el.innerHTML = data;
+            }).catch(error => {
+                el.innerHTML = 'Error';
+            });
     });
 });
