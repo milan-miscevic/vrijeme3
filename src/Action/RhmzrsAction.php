@@ -19,7 +19,7 @@ class RhmzrsAction extends BaseAction
 
     public function run(): Response
     {
-        $data = $this->curl->get('http://rhmzrs.com/wp-content/feeds/temperatureTrenutne.json');
+        $data = $this->curl->get('https://rhmzrs.com/wp-content/feeds/temperatureTrenutne.json');
         $temperatures = json_decode($data, true);
 
         $banjalukaTemperature = 'Unknown';
