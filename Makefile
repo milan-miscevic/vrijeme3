@@ -6,7 +6,7 @@ coverage:
 	docker-compose -f $(CONFIG) run php80 -dxdebug.mode=coverage ./vendor/bin/phpunit --coverage-text
 
 down:
-	docker-compose -f $(CONFIG) down
+	docker-compose -f $(CONFIG) down --remove-orphans
 
 fix:
 	docker-compose -f $(CONFIG) run php80 ./vendor/bin/php-cs-fixer fix
