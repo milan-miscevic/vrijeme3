@@ -3,29 +3,29 @@ CONFIG=./docker/docker-compose.yml
 check: coverage phpstan psalm standards unit
 
 coverage:
-	docker-compose -f $(CONFIG) run php -dxdebug.mode=coverage ./vendor/bin/phpunit --coverage-text
+	docker-compose -f $(CONFIG) run --rm php -dxdebug.mode=coverage ./vendor/bin/phpunit --coverage-text
 
 down:
 	docker-compose -f $(CONFIG) down --remove-orphans
 
 fix:
-	docker-compose -f $(CONFIG) run php ./vendor/bin/php-cs-fixer fix
+	docker-compose -f $(CONFIG) run --rm php ./vendor/bin/php-cs-fixer fix
 
 install:
 	docker-compose -f $(CONFIG) build
-	docker-compose -f $(CONFIG) run php composer install
+	docker-compose -f $(CONFIG) run --rm php composer install
 
 phpstan:
-	docker-compose -f $(CONFIG) run php ./vendor/bin/phpstan analyse
+	docker-compose -f $(CONFIG) run --rm php ./vendor/bin/phpstan analyse
 
 psalm:
-	docker-compose -f $(CONFIG) run php ./vendor/bin/psalm --show-info=true
+	docker-compose -f $(CONFIG) run --rm php ./vendor/bin/psalm --show-info=true
 
 standards:
-	docker-compose -f $(CONFIG) run php ./vendor/bin/php-cs-fixer fix --dry-run -v
+	docker-compose -f $(CONFIG) run --rm php ./vendor/bin/php-cs-fixer fix --dry-run -v
 
 unit:
-	docker-compose -f $(CONFIG) run php ./vendor/bin/phpunit
+	docker-compose -f $(CONFIG) run --rm php ./vendor/bin/phpunit
 
 up:
 	docker-compose -f $(CONFIG) up -d
