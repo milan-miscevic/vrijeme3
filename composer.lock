@@ -4,20 +4,20 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "7e7d3301b4cb0b7b16d3daddd8418017",
+    "content-hash": "1b32455e392af7c8efdd1a7dce79a44e",
     "packages": [
         {
             "name": "milan-miscevic/inert",
-            "version": "0.10",
+            "version": "0.12",
             "source": {
                 "type": "git",
                 "url": "https://github.com/milan-miscevic/inert.git",
-                "reference": "cb41bb634e91e9546a03a53a261deeb706c28c91"
+                "reference": "7002bcd6a54caf3b68b0e848d1374acd46501b5c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/milan-miscevic/inert/zipball/cb41bb634e91e9546a03a53a261deeb706c28c91",
-                "reference": "cb41bb634e91e9546a03a53a261deeb706c28c91",
+                "url": "https://api.github.com/repos/milan-miscevic/inert/zipball/7002bcd6a54caf3b68b0e848d1374acd46501b5c",
+                "reference": "7002bcd6a54caf3b68b0e848d1374acd46501b5c",
                 "shasum": ""
             },
             "require": {
@@ -25,8 +25,10 @@
             },
             "require-dev": {
                 "friendsofphp/php-cs-fixer": "^2",
+                "infection/infection": "^0.16",
                 "phpstan/phpstan": "^0.12",
-                "phpunit/phpunit": "^9"
+                "phpunit/phpunit": "^9",
+                "vimeo/psalm": "^3"
             },
             "type": "library",
             "autoload": {
@@ -44,22 +46,22 @@
                     "email": "milan.miscevic@gmail.com"
                 }
             ],
-            "description": "A mini PHP framework with basic MVC and service locator support",
+            "description": "A mini PHP framework with basic MVC and service container support",
             "keywords": [
-                "Service-Locator",
-                "action-locator",
+                "action-container",
                 "basic",
                 "factory",
                 "framework",
                 "inert",
                 "mvc",
-                "php-framework"
+                "php-framework",
+                "service-container"
             ],
             "support": {
                 "issues": "https://github.com/milan-miscevic/inert/issues",
-                "source": "https://github.com/milan-miscevic/inert/tree/master"
+                "source": "https://github.com/milan-miscevic/inert/tree/0.12"
             },
-            "time": "2020-07-08T21:36:28+00:00"
+            "time": "2020-09-08T20:23:22+00:00"
         }
     ],
     "packages-dev": [
@@ -4788,5 +4790,5 @@
         "php": "^7.4"
     },
     "platform-dev": [],
-    "plugin-api-version": "2.0.0"
+    "plugin-api-version": "2.1.0"
 }
