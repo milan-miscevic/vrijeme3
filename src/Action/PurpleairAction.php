@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace Vrijeme3\Action;
 
-use Inert\BaseAction;
-use Inert\Response;
+use Mmm\Inert\BaseAction;
+use Mmm\Inert\Response;
 use Vrijeme3\Core\Curl;
 use Vrijeme3\Core\Stdlib;
 

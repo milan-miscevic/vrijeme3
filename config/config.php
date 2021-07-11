@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-use Inert\ServiceLocator;
+use Mmm\Inert\ServiceContainer;
 use Vrijeme3\Core\Curl;
 
 return [
@@ -12,7 +12,7 @@ return [
         'rhmzrs' => \Vrijeme3\Action\RhmzrsActionFactory::class,
     ],
     'services' => [
-        Curl::class => function (ServiceLocator $serviceLocator) {
+        Curl::class => function (ServiceContainer $serviceContainer) {
             return new Curl();
         },
     ],

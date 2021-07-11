@@ -4,34 +4,36 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "7e7d3301b4cb0b7b16d3daddd8418017",
+    "content-hash": "c3f7309da529189353d46d69d5d159ea",
     "packages": [
         {
             "name": "milan-miscevic/inert",
-            "version": "0.10",
+            "version": "0.13",
             "source": {
                 "type": "git",
                 "url": "https://github.com/milan-miscevic/inert.git",
-                "reference": "cb41bb634e91e9546a03a53a261deeb706c28c91"
+                "reference": "c8a8cc16f42cc66e6939bc54224719e61cf2c758"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/milan-miscevic/inert/zipball/cb41bb634e91e9546a03a53a261deeb706c28c91",
-                "reference": "cb41bb634e91e9546a03a53a261deeb706c28c91",
+                "url": "https://api.github.com/repos/milan-miscevic/inert/zipball/c8a8cc16f42cc66e6939bc54224719e61cf2c758",
+                "reference": "c8a8cc16f42cc66e6939bc54224719e61cf2c758",
                 "shasum": ""
             },
             "require": {
-                "php": "^7.4"
+                "php": "^7.4 || ^8"
             },
             "require-dev": {
-                "friendsofphp/php-cs-fixer": "^2",
-                "phpstan/phpstan": "^0.12",
-                "phpunit/phpunit": "^9"
+                "friendsofphp/php-cs-fixer": "^2.19.0",
+                "infection/infection": "^0.20 || ^0.21",
+                "phpstan/phpstan": "^0.12.58",
+                "phpunit/phpunit": "^9.5",
+                "vimeo/psalm": "^4.3"
             },
             "type": "library",
             "autoload": {
                 "psr-4": {
-                    "Inert\\": "src/"
+                    "Mmm\\Inert\\": "src/"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -44,22 +46,22 @@
                     "email": "milan.miscevic@gmail.com"
                 }
             ],
-            "description": "A mini PHP framework with basic MVC and service locator support",
+            "description": "Mini PHP framework with basic MVC and service container support",
             "keywords": [
-                "Service-Locator",
-                "action-locator",
+                "action-container",
                 "basic",
                 "factory",
                 "framework",
                 "inert",
                 "mvc",
-                "php-framework"
+                "php-framework",
+                "service-container"
             ],
             "support": {
                 "issues": "https://github.com/milan-miscevic/inert/issues",
-                "source": "https://github.com/milan-miscevic/inert/tree/master"
+                "source": "https://github.com/milan-miscevic/inert/tree/0.13"
             },
-            "time": "2020-07-08T21:36:28+00:00"
+            "time": "2021-07-11T22:56:38+00:00"
         }
     ],
     "packages-dev": [

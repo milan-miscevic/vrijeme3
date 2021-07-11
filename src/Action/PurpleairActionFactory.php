@@ -4,16 +4,16 @@ declare(strict_types=1);
 
 namespace Vrijeme3\Action;
 
-use Inert\BaseFactory;
-use Inert\ServiceLocator;
+use Mmm\Inert\BaseActionFactory;
+use Mmm\Inert\ServiceContainer;
 use Vrijeme3\Core\Curl;
 
-class PurpleairActionFactory extends BaseFactory
+class PurpleairActionFactory extends BaseActionFactory
 {
-    public function __invoke(ServiceLocator $serviceLocator): PurpleairAction
+    public function __invoke(ServiceContainer $serviceContainer): PurpleairAction
     {
         /** @var Curl $curl */
-        $curl = $serviceLocator->get(Curl::class);
+        $curl = $serviceContainer->get(Curl::class);
 
         return new PurpleairAction($curl);
     }

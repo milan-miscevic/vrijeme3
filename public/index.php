@@ -2,21 +2,21 @@
 
 declare(strict_types=1);
 
-use Inert\ActionLocator;
-use Inert\Application;
-use Inert\ServiceLocator;
+use Mmm\Inert\ActionContainer;
+use Mmm\Inert\Application;
+use Mmm\Inert\ServiceContainer;
 
 define('BASE_PATH', dirname(__DIR__));
 
-require(BASE_PATH . '/vendor/autoload.php');
+require BASE_PATH . '/vendor/autoload.php';
 
-$config = require(BASE_PATH . '/config/config.php');
+$config = require BASE_PATH . '/config/config.php';
 $viewFolder = dirname(__DIR__) . DIRECTORY_SEPARATOR . 'view';
 
-$actionLocator = new ActionLocator(
+$actionContainer = new ActionContainer(
     $config['actions'],
-    new ServiceLocator($config['services']),
+    new ServiceContainer($config['services']),
     $viewFolder
 );
 
-(new Application($actionLocator, $viewFolder))->run();
+(new Application($actionContainer, $viewFolder))->run();
