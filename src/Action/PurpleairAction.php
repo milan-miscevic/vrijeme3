@@ -4,12 +4,12 @@ declare(strict_types=1);
 
 namespace Vrijeme3\Action;
 
-use Mmm\Inert\BaseAction;
+use Mmm\Inert\Action;
 use Mmm\Inert\Response;
 use Vrijeme3\Core\Curl;
 use Vrijeme3\Core\Stdlib;
 
-class PurpleairAction extends BaseAction
+class PurpleairAction implements Action
 {
     private Curl $curl;
 

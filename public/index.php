@@ -10,13 +10,14 @@ define('BASE_PATH', dirname(__DIR__));
 
 require BASE_PATH . '/vendor/autoload.php';
 
-$config = require BASE_PATH . '/config/config.php';
+$actions = require BASE_PATH . '/config/actions.php';
+$services = require BASE_PATH . '/config/services.php';
 $viewFolder = dirname(__DIR__) . DIRECTORY_SEPARATOR . 'view';
 
 $actionContainer = new ActionContainer(
-    $config['actions'],
-    new ServiceContainer($config['services']),
+    $actions,
+    new ServiceContainer($services),
     $viewFolder
 );
 
-(new Application($actionContainer, $viewFolder))->run();
+(new Application($actionContainer, $viewFolder))->run()->render();

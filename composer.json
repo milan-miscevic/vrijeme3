@@ -18,7 +18,7 @@
     ],
     "require": {
         "php": "^8",
-        "milan-miscevic/inert": "^0.13"
+        "milan-miscevic/inert": "v014.x-dev"
     },
     "require-dev": {
         "friendsofphp/php-cs-fixer": "^3.0.0",
