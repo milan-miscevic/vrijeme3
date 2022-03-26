@@ -8,6 +8,11 @@ use Mmm\Inert\Action;
 use Mmm\Inert\Response;
 use Vrijeme3\Core\Curl;
 
+/**
+ * @phpstan-type CityWeatherData array{StationID: string, TrenutnaTemp: string}
+ * @psalm-type CityWeatherData = array{StationID: string, TrenutnaTemp: string}
+ * The rest of data/indexes are ignored.
+ */
 class RhmzrsAction implements Action
 {
     private Curl $curl;
@@ -20,6 +25,7 @@ class RhmzrsAction implements Action
     public function run(): Response
     {
         $data = $this->curl->get('https://rhmzrs.com/wp-content/feeds/temperatureTrenutne.json');
+        /** @var array{TemperatureTrenutne: CityWeatherData[]} */
         $temperatures = json_decode($data, true);
 
         $banjalukaTemperature = 'Unknown';
