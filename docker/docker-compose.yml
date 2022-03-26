@@ -4,7 +4,7 @@ services:
 
   nginx:
     depends_on:
-      - php
+      - php81-fpm
     image: nginx:1
     ports:
       - 80:80
@@ -14,9 +14,9 @@ services:
       - ./nginx/app.mmm.conf:/etc/nginx/conf.d/app.mmm.conf
     working_dir: /app
 
-  php:
-    build: ./php/
+  php81-fpm:
+    build: ./php81-fpm/
     volumes:
-      - ../logs:/var/log/xdebug
       - ..:/app
+      - ../logs:/var/log/xdebug
     working_dir: /app

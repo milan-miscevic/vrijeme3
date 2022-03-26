@@ -1,7 +1,7 @@
-/.notes
 /.php-cs-fixer.cache
 /.phpunit.result.cache
 /.vscode
+/infection.json
 /phpstan.neon
 /phpunit.xml
 /vendor
