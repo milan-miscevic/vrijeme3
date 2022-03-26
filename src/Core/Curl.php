@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Vrijeme3\Core;
+namespace Mmm\Vrijeme3\Core;
 
 class Curl
 {

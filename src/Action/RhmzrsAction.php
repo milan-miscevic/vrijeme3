@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace Vrijeme3\Action;
+namespace Mmm\Vrijeme3\Action;
 
 use Mmm\Inert\Action;
 use Mmm\Inert\Response;
-use Vrijeme3\Core\Curl;
+use Mmm\Vrijeme3\Core\Curl;
 
 /**
  * @phpstan-type CityWeatherData array{StationID: string, TrenutnaTemp: string}

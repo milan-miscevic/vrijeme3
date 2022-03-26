@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace Vrijeme3\Action;
+namespace Mmm\Vrijeme3\Action;
 
 use Mmm\Inert\Action;
 use Mmm\Inert\Response;
-use Vrijeme3\Core\Curl;
-use Vrijeme3\Core\Stdlib;
+use Mmm\Vrijeme3\Core\Curl;
+use Mmm\Vrijeme3\Core\Stdlib;
 
 /**
  * @phpstan-type WeatherData array{results: array{0: array{temp_f: int}}}
