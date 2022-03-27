@@ -11,6 +11,9 @@
         <directory name="public" />
         <directory name="src" />
         <directory name="tests" />
+        <ignoreFiles>
+            <directory name="tests/Internal" />
+        </ignoreFiles>
     </projectFiles>
 
     <issueHandlers>
