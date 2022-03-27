@@ -16,11 +16,8 @@ use Mmm\Vrijeme3\Core\Stdlib;
  */
 class PurpleairAction implements Action
 {
-    private Curl $curl;
-
-    public function __construct(Curl $curl)
+    public function __construct(private Curl $curl)
     {
-        $this->curl = $curl;
     }
 
     public function run(): Response

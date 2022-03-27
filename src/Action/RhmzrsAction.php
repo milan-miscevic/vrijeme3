@@ -17,13 +17,10 @@ class RhmzrsAction implements Action
 {
     private const SOURCE = 'https://rhmzrs.com/wp-content/feeds/temperatureTrenutne.json';
 
-    private Curl $curl;
-    private string $cityId;
-
-    public function __construct(Curl $curl, string $cityId)
-    {
-        $this->curl = $curl;
-        $this->cityId = $cityId;
+    public function __construct(
+        private Curl $curl,
+        private string $cityId,
+    ) {
     }
 
     public function run(): Response
