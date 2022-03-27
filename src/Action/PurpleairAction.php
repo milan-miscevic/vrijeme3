@@ -10,8 +10,8 @@ use Mmm\Vrijeme3\Core\Curl;
 use Mmm\Vrijeme3\Core\TemperatureConversionTrait;
 
 /**
- * @phpstan-type WeatherData array{results: array{0: array{temp_f: int}}}
- * @psalm-type WeatherData array{results: array{0: array{temp_f: int}}}
+ * @phpstan-type WeatherData array{results: array{0: array{temp_f: string}}}
+ * @psalm-type WeatherData array{results: array{0: array{temp_f: string}}}
  * The rest of data/indexes are ignored.
  */
 class PurpleairAction implements Action
@@ -31,7 +31,7 @@ class PurpleairAction implements Action
         /** @var WeatherData */
         $weatherData = json_decode($rawWeatherData, true);
 
-        $temperature = $this->fahrenheitToCelsius($weatherData['results'][0]['temp_f']);
+        $temperature = $this->fahrenheitToCelsius((float) $weatherData['results'][0]['temp_f']);
         $temperature = round($temperature, 1);
 
         return new Response((string) $temperature);
