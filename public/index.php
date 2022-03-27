@@ -18,11 +18,13 @@ require BASE_PATH . '/vendor/autoload.php';
  * @psalm-suppress UnresolvableInclude
  */
 $actions = require BASE_PATH . '/config/actions.php';
+
 /**
  * @var class-string[] $services
  * @psalm-suppress UnresolvableInclude
  */
 $services = require BASE_PATH . '/config/services.php';
+
 $viewFolder = dirname(__DIR__) . DIRECTORY_SEPARATOR . 'view';
 
 $actionContainer = new ActionContainer(
