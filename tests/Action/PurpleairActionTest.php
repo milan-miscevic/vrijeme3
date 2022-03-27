@@ -11,27 +11,20 @@ use PHPUnit\Framework\TestCase;
 
 class PurpleairActionTest extends TestCase
 {
-    /** @var Curl&MockObject */
-    protected mixed $curl;
-
-    protected PurpleairAction $action;
-
-    protected function setUp(): void
+    public function testSuccessful(): void
     {
-        $this->curl = $this->getMockBuilder(Curl::class)
+        /** @var Curl&MockObject */
+        $curl = $this->getMockBuilder(Curl::class)
             ->disableOriginalConstructor()
             ->getMock();
 
-        $this->action = new PurpleairAction($this->curl);
-    }
-
-    public function testSuccessful(): void
-    {
-        $this->curl->expects($this->once())
+        $curl->expects($this->once())
             ->method('get')
             ->with($this->equalTo('http://www.purpleair.com/json?show=33099'))
             ->willReturn('{"results":[{"temp_f":54.15}]}');
 
-        $this->assertSame('12.3', $this->action->run()->getContent());
+        $action = new PurpleairAction($curl);
+
+        $this->assertSame('12.3', $action->run()->getContent());
     }
 }
