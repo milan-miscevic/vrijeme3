@@ -15,6 +15,6 @@ class RhmzrsActionFactory implements ActionFactory
         /** @var Curl $curl */
         $curl = $serviceContainer->get(Curl::class);
 
-        return new RhmzrsAction($curl);
+        return new RhmzrsAction($curl, '14542');
     }
 }

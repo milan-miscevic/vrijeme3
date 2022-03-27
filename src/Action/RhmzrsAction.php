@@ -15,28 +15,33 @@ use Mmm\Vrijeme3\Core\Curl;
  */
 class RhmzrsAction implements Action
 {
-    private Curl $curl;
+    private const SOURCE = 'https://rhmzrs.com/wp-content/feeds/temperatureTrenutne.json';
 
-    public function __construct(Curl $curl)
+    private Curl $curl;
+    private string $cityId;
+
+    public function __construct(Curl $curl, string $cityId)
     {
         $this->curl = $curl;
+        $this->cityId = $cityId;
     }
 
     public function run(): Response
     {
-        $data = $this->curl->get('https://rhmzrs.com/wp-content/feeds/temperatureTrenutne.json');
+        $rawWeatherData = $this->curl->get(self::SOURCE);
+
         /** @var array{TemperatureTrenutne: CityWeatherData[]} */
-        $temperatures = json_decode($data, true);
+        $weatherData = json_decode($rawWeatherData, true);
 
-        $banjalukaTemperature = 'Unknown';
+        $temperature = 'Unknown';
 
-        foreach ($temperatures['TemperatureTrenutne'] as $city) {
-            if ($city['StationID'] === '14542') {
-                $banjalukaTemperature = $city['TrenutnaTemp'];
+        foreach ($weatherData['TemperatureTrenutne'] as $cityWeatherData) {
+            if ($cityWeatherData['StationID'] === $this->cityId) {
+                $temperature = $cityWeatherData['TrenutnaTemp'];
                 break;
             }
         }
 
-        return new Response($banjalukaTemperature);
+        return new Response($temperature);
     }
 }

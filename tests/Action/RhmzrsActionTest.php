@@ -22,7 +22,7 @@ class RhmzrsActionTest extends TestCase
             ->disableOriginalConstructor()
             ->getMock();
 
-        $this->action = new RhmzrsAction($this->curl);
+        $this->action = new RhmzrsAction($this->curl, '14542');
     }
 
     public function testSuccessful(): void
