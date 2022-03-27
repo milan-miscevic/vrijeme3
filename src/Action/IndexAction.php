@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Vrijeme3\Action;
+namespace Mmm\Vrijeme3\Action;
 
 use Mmm\Inert\Action;
 use Mmm\Inert\Renderable;

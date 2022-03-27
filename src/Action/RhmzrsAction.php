@@ -2,35 +2,43 @@
 
 declare(strict_types=1);
 
-namespace Vrijeme3\Action;
+namespace Mmm\Vrijeme3\Action;
 
 use Mmm\Inert\Action;
 use Mmm\Inert\Response;
-use Vrijeme3\Core\Curl;
+use Mmm\Vrijeme3\Core\Curl;
 
+/**
+ * @phpstan-type CityWeatherData array{StationID: string, TrenutnaTemp: string}
+ * @psalm-type CityWeatherData = array{StationID: string, TrenutnaTemp: string}
+ * The rest of data/indexes are ignored.
+ */
 class RhmzrsAction implements Action
 {
-    private Curl $curl;
+    private const SOURCE = 'https://rhmzrs.com/wp-content/feeds/temperatureTrenutne.json';
 
-    public function __construct(Curl $curl)
-    {
-        $this->curl = $curl;
+    public function __construct(
+        private Curl $curl,
+        private string $cityId,
+    ) {
     }
 
     public function run(): Response
     {
-        $data = $this->curl->get('https://rhmzrs.com/wp-content/feeds/temperatureTrenutne.json');
-        $temperatures = json_decode($data, true);
+        $rawWeatherData = $this->curl->get(self::SOURCE);
 
-        $banjalukaTemperature = 'Unknown';
+        /** @var array{TemperatureTrenutne: CityWeatherData[]} */
+        $weatherData = json_decode($rawWeatherData, true);
 
-        foreach ($temperatures['TemperatureTrenutne'] as $city) {
-            if ($city['StationID'] === '14542') {
-                $banjalukaTemperature = $city['TrenutnaTemp'];
+        $temperature = 'Unknown';
+
+        foreach ($weatherData['TemperatureTrenutne'] as $cityWeatherData) {
+            if ($cityWeatherData['StationID'] === $this->cityId) {
+                $temperature = $cityWeatherData['TrenutnaTemp'];
                 break;
             }
         }
 
-        return new Response($banjalukaTemperature);
+        return new Response($temperature);
     }
 }

@@ -5,6 +5,7 @@
 
 [![GitHub Actions Check](https://github.com/milan-miscevic/vrijeme3/workflows/Check/badge.svg?branch=master)](https://github.com/milan-miscevic/vrijeme3/actions)
 [![Type Coverage](https://shepherd.dev/github/milan-miscevic/vrijeme3/coverage.svg)](https://shepherd.dev/github/milan-miscevic/vrijeme3)
+[![Mutation testing badge](https://img.shields.io/endpoint?style=flat&url=https%3A%2F%2Fbadge-api.stryker-mutator.io%2Fgithub.com%2Fmilan-miscevic%2Fvrijeme3%2Fmaster)](https://dashboard.stryker-mutator.io/reports/github.com/milan-miscevic/vrijeme3/master)
 
 vrijeme3 (lit. weather3) is a project planned to collect weather data from various sources for locations of my interest. It is intended to be used on the localhost. It is an example of the use of the Inert framework.
 

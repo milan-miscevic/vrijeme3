@@ -1,32 +1,35 @@
-CONFIG=./docker/docker-compose.yml
-PHP=php
-
-check: coverage phpstan psalm standards unit
+DOCKER=docker-compose -f ./docker/docker-compose.yml
+PHP=php81-fpm
 
 coverage:
-	docker-compose -f $(CONFIG) run --rm $(PHP) -dxdebug.mode=coverage ./vendor/bin/phpunit --coverage-text
+	$(DOCKER) run --rm $(PHP) php -dxdebug.mode=coverage ./vendor/bin/phpunit --coverage-text
 
 down:
-	docker-compose -f $(CONFIG) down --remove-orphans
+	$(DOCKER) down --remove-orphans
 
 fix:
-	docker-compose -f $(CONFIG) run --rm $(PHP) ./vendor/bin/php-cs-fixer fix
+	$(DOCKER) run --rm $(PHP) ./vendor/bin/php-cs-fixer fix
 
 install:
-	docker-compose -f $(CONFIG) build
-	docker-compose -f $(CONFIG) run --rm $(PHP) composer install
+	$(DOCKER) build
+	$(DOCKER) run --rm $(PHP) composer install
+
+mutation:
+	$(DOCKER) run --rm $(PHP) ./vendor/bin/infection --min-msi=80
 
 phpstan:
-	docker-compose -f $(CONFIG) run --rm $(PHP) ./vendor/bin/phpstan analyse
+	$(DOCKER) run --rm $(PHP) ./vendor/bin/phpstan analyse
 
 psalm:
-	docker-compose -f $(CONFIG) run --rm $(PHP) ./vendor/bin/psalm --show-info=true
+	$(DOCKER) run --rm $(PHP) ./vendor/bin/psalm --show-info=true
 
 standards:
-	docker-compose -f $(CONFIG) run --rm $(PHP) ./vendor/bin/php-cs-fixer fix --dry-run -v
+	$(DOCKER) run --rm $(PHP) ./vendor/bin/php-cs-fixer fix --dry-run -v
+
+test: standards unit phpstan psalm mutation
 
 unit:
-	docker-compose -f $(CONFIG) run --rm $(PHP) ./vendor/bin/phpunit
+	$(DOCKER) run --rm $(PHP) ./vendor/bin/phpunit
 
 up:
-	docker-compose -f $(CONFIG) up -d
+	$(DOCKER) up -d

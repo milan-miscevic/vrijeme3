@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace Vrijeme3\Action;
+namespace Mmm\Vrijeme3\Action;
 
 use Mmm\Inert\ActionFactory;
 use Mmm\Inert\ServiceContainer;
-use Vrijeme3\Core\Curl;
+use Mmm\Vrijeme3\Core\Curl;
 
 class RhmzrsActionFactory implements ActionFactory
 {
@@ -15,6 +15,6 @@ class RhmzrsActionFactory implements ActionFactory
         /** @var Curl $curl */
         $curl = $serviceContainer->get(Curl::class);
 
-        return new RhmzrsAction($curl);
+        return new RhmzrsAction($curl, '14542');
     }
 }

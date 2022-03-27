@@ -2,28 +2,37 @@
 
 declare(strict_types=1);
 
-namespace Vrijeme3\Action;
+namespace Mmm\Vrijeme3\Action;
 
 use Mmm\Inert\Action;
 use Mmm\Inert\Response;
-use Vrijeme3\Core\Curl;
-use Vrijeme3\Core\Stdlib;
+use Mmm\Vrijeme3\Core\Curl;
+use Mmm\Vrijeme3\Core\TemperatureConversionTrait;
 
+/**
+ * @phpstan-type WeatherData array{results: array{0: array{temp_f: string}}}
+ * @psalm-type WeatherData array{results: array{0: array{temp_f: string}}}
+ * The rest of data/indexes are ignored.
+ */
 class PurpleairAction implements Action
 {
-    private Curl $curl;
+    use TemperatureConversionTrait;
 
-    public function __construct(Curl $curl)
+    private const SOURCE = 'http://www.purpleair.com/json?show=33099';
+
+    public function __construct(private Curl $curl)
     {
-        $this->curl = $curl;
     }
 
     public function run(): Response
     {
-        $data = $this->curl->get('http://www.purpleair.com/json?show=33099');
-        $data = json_decode($data, true);
+        $rawWeatherData = $this->curl->get(self::SOURCE);
 
-        $temperature = Stdlib::fahrenheitToCelsius((float) $data['results'][0]['temp_f']);
+        /** @var WeatherData */
+        $weatherData = json_decode($rawWeatherData, true);
+
+        $temperature = $this->fahrenheitToCelsius((float) $weatherData['results'][0]['temp_f']);
+        $temperature = round($temperature, 1);
 
         return new Response((string) $temperature);
     }
