@@ -2,6 +2,7 @@
 
 declare(strict_types=1);
 
+use Mmm\Inert\Action;
 use Mmm\Inert\ActionContainer;
 use Mmm\Inert\ActionFactory;
 use Mmm\Inert\Application;
@@ -13,7 +14,7 @@ define('BASE_PATH', dirname(__DIR__));
 require BASE_PATH . '/vendor/autoload.php';
 
 /**
- * @var class-string<ActionFactory>[] $actions
+ * @var (class-string<Action>|class-string<ActionFactory>)[] $actions
  * @psalm-suppress UnresolvableInclude
  */
 $actions = require BASE_PATH . '/config/actions.php';
