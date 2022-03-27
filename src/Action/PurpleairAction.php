@@ -7,7 +7,7 @@ namespace Mmm\Vrijeme3\Action;
 use Mmm\Inert\Action;
 use Mmm\Inert\Response;
 use Mmm\Vrijeme3\Core\Curl;
-use Mmm\Vrijeme3\Core\Stdlib;
+use Mmm\Vrijeme3\Core\TemperatureConversionTrait;
 
 /**
  * @phpstan-type WeatherData array{results: array{0: array{temp_f: int}}}
@@ -16,17 +16,23 @@ use Mmm\Vrijeme3\Core\Stdlib;
  */
 class PurpleairAction implements Action
 {
+    use TemperatureConversionTrait;
+
+    private const SOURCE = 'http://www.purpleair.com/json?show=33099';
+
     public function __construct(private Curl $curl)
     {
     }
 
     public function run(): Response
     {
-        $data = $this->curl->get('http://www.purpleair.com/json?show=33099');
-        /** @var WeatherData */
-        $data = json_decode($data, true);
+        $rawWeatherData = $this->curl->get(self::SOURCE);
 
-        $temperature = Stdlib::fahrenheitToCelsius((float) $data['results'][0]['temp_f']);
+        /** @var WeatherData */
+        $weatherData = json_decode($rawWeatherData, true);
+
+        $temperature = $this->fahrenheitToCelsius($weatherData['results'][0]['temp_f']);
+        $temperature = round($temperature, 1);
 
         return new Response((string) $temperature);
     }
