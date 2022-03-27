@@ -12,7 +12,7 @@
         <directory name="src" />
         <directory name="tests" />
         <ignoreFiles>
-            <directory name="tests/Internal" />
+            <directory name="vendor" />
         </ignoreFiles>
     </projectFiles>
 

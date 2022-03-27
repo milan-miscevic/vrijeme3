@@ -5,30 +5,47 @@ declare(strict_types=1);
 namespace Mmm\Vrijeme3\Tests\Core;
 
 use Mmm\Vrijeme3\Core\Curl;
-use Mmm\Vrijeme3\Tests\Internal\Counter;
+use phpmock\phpunit\PHPMock;
 use PHPUnit\Framework\TestCase;
 
 class CurlTest extends TestCase
 {
-    protected function setUp(): void
-    {
-        Counter::reset();
-
-        /** @psalm-suppress MissingFile */
-        require_once dirname(dirname(__FILE__)) . DIRECTORY_SEPARATOR . 'Internal' . DIRECTORY_SEPARATOR . 'curl_.php';
-    }
+    use PHPMock;
 
     public function testSuccessful(): void
     {
+        $this->getFunctionMock('Mmm\Vrijeme3\Core', 'curl_init')
+            ->expects($this->once())
+            ->willReturn(true); // TODO
+
+        $this->getFunctionMock('Mmm\Vrijeme3\Core', 'curl_setopt')
+            ->expects($this->exactly(5))
+            ->withConsecutive(
+                [true, CURLOPT_URL, 'http://www.example.com/'],
+                [true, CURLOPT_CUSTOMREQUEST, 'GET'],
+                [true, CURLOPT_RETURNTRANSFER, true],
+                [true, CURLOPT_SSL_VERIFYHOST, 0],
+                [true, CURLOPT_SSL_VERIFYPEER, 0],
+            )
+            ->willReturn(true);
+
+        $this->getFunctionMock('Mmm\Vrijeme3\Core', 'curl_exec')
+            ->expects($this->once())
+            ->with(true)
+            ->willReturn('Successful data');
+
+        $this->getFunctionMock('Mmm\Vrijeme3\Core', 'curl_error')
+            ->expects($this->never())
+            ->with(true)
+            ->willReturn('Error message');
+
+        $this->getFunctionMock('Mmm\Vrijeme3\Core', 'curl_close')
+            ->expects($this->once())
+            ->with(true);
+
         $curl = new Curl();
-        $data = $curl->get('url');
+        $data = $curl->get('http://www.example.com/');
 
-        $this->assertSame('Success', $data);
-
-        $this->assertSame(1, Counter::getCalls('curl_init'));
-        $this->assertSame(5, Counter::getCalls('curl_setopt'));
-        $this->assertSame(1, Counter::getCalls('curl_exec'));
-        $this->assertSame(0, Counter::getCalls('curl_error'));
-        $this->assertSame(1, Counter::getCalls('curl_close'));
+        $this->assertSame('Successful data', $data);
     }
 }
