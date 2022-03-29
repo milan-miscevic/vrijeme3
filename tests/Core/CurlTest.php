@@ -18,7 +18,7 @@ class CurlTest extends TestCase
 
     protected function setUp(): void
     {
-        // As CurlHandle is a final class and it can not be doubled.
+        // CurlHandle is a final class and it can not be doubled.
         // It is replaced with stdClass.
 
         $this->curlHandle = new stdClass();
