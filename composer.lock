@@ -4,20 +4,20 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "81c2ea0aee131cc2b02166d9c8127514",
+    "content-hash": "c60a64be2a0c6d1988584d6a0fc0dd69",
     "packages": [
         {
             "name": "milan-miscevic/inert",
-            "version": "v014.x-dev",
+            "version": "0.14",
             "source": {
                 "type": "git",
                 "url": "https://github.com/milan-miscevic/inert.git",
-                "reference": "5d3ce8d6b4bf9bee610d163ec4d341378adfc500"
+                "reference": "0cb065aff1239371ef0f138c61d0b6fae437402f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/milan-miscevic/inert/zipball/5d3ce8d6b4bf9bee610d163ec4d341378adfc500",
-                "reference": "5d3ce8d6b4bf9bee610d163ec4d341378adfc500",
+                "url": "https://api.github.com/repos/milan-miscevic/inert/zipball/0cb065aff1239371ef0f138c61d0b6fae437402f",
+                "reference": "0cb065aff1239371ef0f138c61d0b6fae437402f",
                 "shasum": ""
             },
             "require": {
@@ -25,11 +25,11 @@
                 "psr/container": "^2.0"
             },
             "require-dev": {
-                "friendsofphp/php-cs-fixer": "^3.7.0",
+                "friendsofphp/php-cs-fixer": "^3.8.0",
                 "infection/infection": "^0.26.6",
-                "phpstan/phpstan": "^1.4.9",
+                "phpstan/phpstan": "^1.5.2",
                 "phpstan/phpstan-strict-rules": "^1.1",
-                "phpunit/phpunit": "^9.5.18",
+                "phpunit/phpunit": "^9.5.19",
                 "vimeo/psalm": "^4.22.0"
             },
             "type": "library",
@@ -64,9 +64,9 @@
             ],
             "support": {
                 "issues": "https://github.com/milan-miscevic/inert/issues",
-                "source": "https://github.com/milan-miscevic/inert/tree/v014"
+                "source": "https://github.com/milan-miscevic/inert/tree/0.14"
             },
-            "time": "2022-03-26T16:21:26+00:00"
+            "time": "2022-04-01T06:57:27+00:00"
         },
         {
             "name": "psr/container",
@@ -5809,9 +5809,7 @@
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": {
-        "milan-miscevic/inert": 20
-    },
+    "stability-flags": [],
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
