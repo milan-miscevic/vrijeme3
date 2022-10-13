@@ -21,7 +21,7 @@
         "milan-miscevic/inert": "^0.14"
     },
     "require-dev": {
-        "friendsofphp/php-cs-fixer": "^3.8.0",
+        "friendsofphp/php-cs-fixer": "^3.12.0",
         "infection/infection": "^0.26.6",
         "php-mock/php-mock-phpunit": "^2.6",
         "phpstan/phpstan": "^1.5.2",
